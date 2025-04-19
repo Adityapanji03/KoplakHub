@@ -1,0 +1,65 @@
+/* regis */
+.container{
+    padding-top: 5rem;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+}
+
+.card-header {
+    border-radius: 8px 8px 0 0;
+    background-color: #FFA75B;
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 550;
+
+}
+
+.btn-primary {
+    border-radius: 5px;
+}
+
+.container .row h1 {
+    font-weight: 550;
+}
+
+.container .row h1 span{
+    color: #FFA75B;
+    font-family: 'Lily Script One';
+}
+
+.container .row p{
+    color: #000000;
+    text-align: justify;
+    padding: 0 2rem;
+}
+
+.btn {
+    background-color: #FFA75B;
+    margin-top: 1rem;
+}
+
+.btn:hover{
+    background-color: #b75c0c;
+}
+
+.btn a{
+    color: #000000;
+}
+/* alert regis */
+.swal-custom-confirm {
+    background-color: #FFA75B !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background 0.3s ease;
+}
+
+.swal-custom-confirm:hover {
+    background-color: #ff9440 !important;
+}

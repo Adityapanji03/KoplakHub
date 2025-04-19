@@ -1,0 +1,234 @@
+* {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none !important;
+
+}
+
+body {
+    font-family: 'Poopins', sans-serif;
+    background-color: #fff;
+    color: #000000;
+}
+
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 5%;
+    background-color: #FFA75B;
+    box-shadow: 0 2px 2px rgba(255, 154, 3, 0.647);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbar-logo span{
+    color: #6E3300;
+    
+}
+
+.navbar .navbar-logo .logo {
+    width: 5rem;
+    height: 5rem;
+}
+
+.navbar-nav {
+    display: inline-block;
+    align-items: center; 
+}
+
+.navbar-nav a{
+    color: #000000;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    align-items: center;
+
+}
+
+.navbar .navbar-nav a:hover {
+    color: #6E3300;
+}
+
+.navbar .navbar-extra a{
+    color: #6E3300;
+    margin: 0 0.5rem;
+
+}
+
+.navbar .navbar-extra a:hover{
+    color: #fff;
+}
+
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid #000000;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after{
+    transform: scaleX(0.5);
+}
+
+/* responsive navbar */
+#menu{
+    display: none;
+}
+
+#hero {
+    overflow: hidden;
+}
+
+/* Main */
+#home {
+    background-color: #1c1c1c;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#kolak {
+    color: #FFA75B;
+    padding-top: 9rem;
+    font-size: 7rem;
+    font-weight: 400;
+    font-family: 'Lily Script One';
+}
+
+#kofood {
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 2rem;
+}
+
+.hero .content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform-origin: top center;
+}
+
+.hero .content img {
+    padding: 2rem 0;
+    width: auto;
+    height: auto;
+    transform: scale(1.6);
+    max-width: 100%;
+    max-height: 45rem;
+}
+
+.hero .content p {
+    margin: 0 4rem;
+    color: #FFA75B;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    padding: 0 5rem;
+    text-align: justify; 
+}
+
+.hero .content p span{
+    color: #fff;
+}
+
+.hero .content .cta {
+    text-decoration: none;
+}
+
+.hero .content button#klik {
+    background-color: #FFA75B;
+    color: #1c1c1c;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero .content button#klik:hover {
+    background-color: #6E3300;
+    cursor: pointer;
+}
+
+.hero .content button#klik i {
+    font-size: 1.5rem;
+}
+
+/* media querrys */
+
+/* laptop */
+@media (max-width: 1366px){
+    html{
+        font-size: 75%;
+    }
+}
+/* HP */
+@media (max-width: 758px){
+    html{
+        font-size: 62%;
+    }
+    #menu{
+        display: inline-block;
+    }
+    .navbar .navbar-nav{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+    .navbar .navbar-nav.active{
+        right: 0;
+
+    }
+    .navbar .navbar-nav a{
+        color: #010101;
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+
+    }
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+
+    }
+    .navbar .navbar-nav a:hover::after{
+        transform: scaleX(0.2);
+    }
+}
+
