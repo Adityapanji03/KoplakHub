@@ -33,4 +33,4 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', adjustScale);
 });
 
-// fitur akum visible ketika berhasil login
+

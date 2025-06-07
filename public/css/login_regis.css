@@ -50,7 +50,7 @@
 }
 /* alert regis */
 .swal-custom-confirm {
-    background-color: #FFA75B !important;
+    background-color: #ffeb3b !important;
     color: white !important;
     border: none !important;
     padding: 10px 24px;
@@ -61,5 +61,5 @@
 }
 
 .swal-custom-confirm:hover {
-    background-color: #ff9440 !important;
+    background-color: #c7b300 !important;
 }

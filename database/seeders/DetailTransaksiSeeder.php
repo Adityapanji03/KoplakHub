@@ -1,0 +1,212 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
+class DetailTransaksiSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('detail_transaksi')->insert([
+            [
+                'id' => 1,
+                'transaksi_id' => 13,
+                'produk_id' => 1,
+                'harga' => 10000.00,
+                'jumlah' => 3,
+                'subtotal' => 30000.00,
+                'created_at' => '2025-05-17 20:07:46',
+                'updated_at' => '2025-05-17 20:07:46',
+            ],
+            [
+                'id' => 2,
+                'transaksi_id' => 14,
+                'produk_id' => 1,
+                'harga' => 10000.00,
+                'jumlah' => 1,
+                'subtotal' => 10000.00,
+                'created_at' => '2025-05-17 20:11:25',
+                'updated_at' => '2025-05-17 20:11:25',
+            ],
+            [
+                'id' => 3,
+                'transaksi_id' => 16,
+                'produk_id' => 2,
+                'harga' => 10000.00,
+                'jumlah' => 2,
+                'subtotal' => 20000.00,
+                'created_at' => '2025-05-21 14:37:24',
+                'updated_at' => '2025-05-21 14:37:24',
+            ],
+            [
+                'id' => 4,
+                'transaksi_id' => 18,
+                'produk_id' => 1,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 22, 19, 28, 29),
+                'updated_at' => Carbon::create(2025, 5, 22, 19, 28, 29),
+            ],
+            [
+                'id' => 5,
+                'transaksi_id' => 18,
+                'produk_id' => 4,
+                'harga' => 15000.00,
+                'jumlah' => 1,
+                'subtotal' => 15000.00,
+                'created_at' => Carbon::create(2025, 5, 22, 19, 28, 29),
+                'updated_at' => Carbon::create(2025, 5, 22, 19, 28, 29),
+            ],
+            [
+                'id' => 6,
+                'transaksi_id' => 18,
+                'produk_id' => 2,
+                'harga' => 20000.00,
+                'jumlah' => 1,
+                'subtotal' => 20000.00,
+                'created_at' => Carbon::create(2025, 5, 22, 19, 28, 29),
+                'updated_at' => Carbon::create(2025, 5, 22, 19, 28, 29),
+            ],
+            [
+                'id' => 7,
+                'transaksi_id' => 19,
+                'produk_id' => 2,
+                'harga' => 20000.00,
+                'jumlah' => 1,
+                'subtotal' => 20000.00,
+                'created_at' => Carbon::create(2025, 5, 22, 19, 37, 33),
+                'updated_at' => Carbon::create(2025, 5, 22, 19, 37, 33),
+            ],
+            [
+                'id' => 8,
+                'transaksi_id' => 20,
+                'produk_id' => 4,
+                'harga' => 15000.00,
+                'jumlah' => 1,
+                'subtotal' => 15000.00,
+                'created_at' => Carbon::create(2025, 5, 22, 19, 40, 6),
+                'updated_at' => Carbon::create(2025, 5, 22, 19, 40, 6),
+            ],
+            [
+                'id' => 9,
+                'transaksi_id' => 21,
+                'produk_id' => 1,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 22, 19, 49, 25),
+                'updated_at' => Carbon::create(2025, 5, 22, 19, 49, 25),
+            ],
+            [
+                'id' => 10,
+                'transaksi_id' => 21,
+                'produk_id' => 2,
+                'harga' => 20000.00,
+                'jumlah' => 1,
+                'subtotal' => 20000.00,
+                'created_at' => Carbon::create(2025, 5, 22, 19, 49, 25),
+                'updated_at' => Carbon::create(2025, 5, 22, 19, 49, 25),
+            ],
+            [
+                'id' => 11,
+                'transaksi_id' => 22,
+                'produk_id' => 1,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 12,
+                'transaksi_id' => 22,
+                'produk_id' => 2,
+                'harga' => 20000.00,
+                'jumlah' => 1,
+                'subtotal' => 20000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 13,
+                'transaksi_id' => 23,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 14,
+                'transaksi_id' => 24,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 15,
+                'transaksi_id' => 25,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 16,
+                'transaksi_id' => 26,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 17,
+                'transaksi_id' => 27,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 18,
+                'transaksi_id' => 28,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+            [
+                'id' => 19,
+                'transaksi_id' => 29,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
+
+        ]);
+    }
+}

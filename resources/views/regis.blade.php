@@ -3,178 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koplak Food</title>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!--font google-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Feather icon -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <!-- remixicon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
-    <!--Css-->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/login_regis.css') }}">>
-    {{-- alert --}}
-
-</head>
-<body>
-
-    <!--Navbar-->
-    @include('layout.navbar')
-
-    <!-- regis form -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <h1>Hai customer <span>KoplakFood</span></h1>
-            <p>Dengan mendaftar akun sekarang, Anda akan mendapatkan akses penuh ke berbagai fitur menarik, melihat riwayat pesanan lengkap, serta menikmati proses pemesanan yang jauh lebih cepat dan praktis. Segera buat akun Anda di Koplak Food dan rasakan sendiri betapa mudah dan menyenangkannya menikmati kopi dan makanan favorit Anda.</p>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Register
-                    </div>
-                    <div class="card-body">
-                        <form id="registrationForm" method="POST" action="{{ route('register.submit') }}">
-                            @csrf
-                            <div class="form-group">
-                                <label for="email">E-Mail:</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirmPassword">Konfirmasi Password:</label>
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nama">Nama:</label>
-                                <input type="text" class="form-control" id="nama" name="nama" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="username">Username:</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
-                                <small id="usernameHelp" class="form-text text-muted"></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="provinsi">Provinsi:</label>
-                                <select class="form-control" id="provinsi" name="provinsi" required>
-                                    <option value="">Pilih Provinsi</option>
-                                    <option value="Jawa Barat">Jawa Barat</option>
-                                    <option value="Jawa Tengah">Jawa Tengah</option>
-                                    <option value="Jawa Timur">Jawa Timur</option>
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="kabupatenKota">Kabupaten/Kota:</label>
-                                <select class="form-control" id="kabupatenKota" name="kabupatenKota" required>
-                                    <option value="">Pilih Kabupaten/Kota</option>
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="kecamatan">Kecamatan:</label>
-                                <select class="form-control" id="kecamatan" name="kecamatan" required>
-                                    <option value="">Pilih Kecamatan</option>
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="kelurahan">Kelurahan:</label>
-                                <select class="form-control" id="kelurahan" name="kelurahan" required>
-                                    <option value="">Pilih Kelurahan</option>
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="detailAlamat">Detail Alamat:</label>
-                                <textarea class="form-control" id="detailAlamat" name="detailAlamat" rows="3" required></textarea>
-                            </div>
-                            <button type="button" class="btn">
-                                <a href="index.php">Batal</a>
-                            </button>
-                            <button type="submit" class="btn">Register</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="errorModalLabel">Data Tidak Valid</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Data yang Anda masukkan tidak valid. Harap isi kembali formulir dengan benar.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer -->
-    <footer class="py-4" style="background-color: #FFA75B;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/img/logoKF.png') }}" alt="Si Umang Logo" class="img-fluid" id="img-footer" style="max-width: 200px;">
-                </div>
-                <div class="col-md-4">
-                    <h5 style="font-weight: 550; font-family: 'Lily Script One';font-size: 2rem;">Alamat</h5>
-                    <p class="mb-0" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; font-weight: 550;font-size: 1.5rem;">PT KoplakFood</p>
-                    <p class="mb-0" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 550;font-size: 1.2rem;">dusun Gumuksegawe, Gumuk Segawe, Pancakarya, Kec. Ajung, Kabupaten Jember, Jawa Timur 68175</p>
-                </div>
-                <div class="col-md-4 text-center" style="margin-top: 3rem;">
-                    <h5 style="font-weight: 550; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 1.5rem;">Media sosial kami</h5>
-                    <div class="mt-2">
-                        <a href="#"><img src="assets\img\icons8-youtube-48.png" style="max-width: 2.7rem; margin: 0 0.8rem;"></a>
-                        <a href="#"><img src="assets\img\icons8-ig-48.png" style="max-width: 2.7rem;margin: 0 0.8rem;"></a>
-                        <a href="#"><img src="assets\img\icons8-whatsapp-48.png" style="max-width: 2.7rem;margin: 0 0.8rem;"></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-3" style="border-top: 1px solid rgba(0, 0, 0, 0.1);">
-            <div class="text-center text-muted">
-                <p class="mb-0" style="color: #ffffff;">&copy; 2025 KoplakFood. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    {{-- alert --}}
-    <!-- SweetAlert2 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    @if ($errors->any())
+    <title>Register - Koplak Food</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .register-bg {
+            background-image: url('https://d1r9hss9q19p18.cloudfront.net/uploads/2017/04/2017-04-15-04.41.12-1-1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: #FBC02D;
+            box-shadow: 0 0 0 2px rgba(251, 192, 45, 0.3);
+        }
+        .form-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        .form-select:focus {
+            border-color: #FBC02D;
+            box-shadow: 0 0 0 2px rgba(251, 192, 45, 0.3);
+        }
+    </style>
     <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Terjadi Kesalahan',
-            html: `{!! implode('<br>', $errors->all()) !!}`,
-            confirmButtonText: 'Oke',
-            customClass: {
-                confirmButton: 'swal-custom-confirm',
-            },
-            buttonsStyling: false,
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'koplak': '#FFEB3B',
+                        'koplak-dark': '#FBC02D',
+                        'koplak-darker': '#F57F17',
+                        'dark': '#111827',
+                        'darker': '#0D1321'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'lily': ['"Lily Script One"', 'cursive']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white font-poppins">
+
+    <!-- Registration Section -->
+    <div class="min-h-screen flex items-center justify-center px-4 py-8">
+        <div class="w-full max-w-6xl bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-800">
+            <div class="flex flex-col lg:flex-row">
+                <!-- Image Section -->
+                <div class="lg:w-1/2 register-bg hidden lg:block relative">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-10">
+                        <div class="text-center">
+                            <h2 class="text-4xl font-bold text-koplak mb-4 animate-fade-in" style="font-family: 'Lily Script One', cursive;">KoplakFood</h2>
+                            <p class="text-gray-300 text-lg animate-fade-in" style="animation-delay: 0.2s;">Bergabunglah dengan pecinta kopi lain, dan rasakan kenikmatan kopi khas kami</p>
+                            <div class="mt-8 space-y-4 text-left animate-fade-in" style="animation-delay: 0.4s;">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-koplak mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Akses ke produk sangat mudah</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-koplak mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Proses pemesanan lebih cepat</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-koplak mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Riwayat pesanan lengkap</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Section -->
+                <div class="lg:w-1/2 p-8 md:p-12">
+                    <div class="text-center mb-8">
+                        <h1 class="text-3xl font-bold text-white mb-2 animate-fade-in">Daftar Akun <span class="text-koplak" style="font-family: 'Lily Script One', cursive;">KoplakHub</span></h1>
+                        <p class="text-gray-400 animate-fade-in" style="animation-delay: 0.1s;">Bergabunglah dengan kami sekarang</p>
+                    </div>
+
+                    <form id="registrationForm" method="POST" action="{{ route('register.submit') }}" class="space-y-5">
+                        @csrf
+                        <!-- Personal Information -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                                <label for="nama" class="block text-gray-300 mb-2">Nama Lengkap</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-500"></i>
+                                    </div>
+                                    <input type="text" id="nama" name="nama" required
+                                           class="form-input w-full pl-10 pr-3 py-3 rounded-lg"
+                                           placeholder="Masukkan nama lengkap">
+                                </div>
+                                @error('nama')
+                                    <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                                <label for="username" class="block text-gray-300 mb-2">Username</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-at text-gray-500"></i>
+                                    </div>
+                                    <input type="text" id="username" name="username" required
+                                           class="form-input w-full pl-10 pr-3 py-3 rounded-lg"
+                                           placeholder="Buat username">
+                                </div>
+                                @error('username')
+                                    <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="animate-fade-in" style="animation-delay: 0.4s;">
+                            <label for="nomor_hp" class="block text-gray-300 mb-2">Nomor HP</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone text-gray-500"></i>
+                                </div>
+                                <input type="text" id="nomor_hp" name="nomor_hp" required
+                                       class="form-input w-full pl-10 pr-3 py-3 rounded-lg"
+                                       placeholder="Contoh: 081234567890">
+                            </div>
+                            @error('nomor_hp')
+                                <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Password -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="animate-fade-in" style="animation-delay: 0.5s;">
+                                <label for="password" class="block text-gray-300 mb-2">Password</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-lock text-gray-500"></i>
+                                    </div>
+                                    <input type="password" id="password" name="password" required
+                                           class="form-input w-full pl-10 pr-4 py-3 rounded-lg"
+                                           placeholder="Buat password">
+                                </div>
+                                @error('password')
+                                    <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="animate-fade-in" style="animation-delay: 0.6s;">
+                                <label for="confirmPassword" class="block text-gray-300 mb-2">Konfirmasi Password</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-lock text-gray-500"></i>
+                                    </div>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required
+                                           class="form-input w-full pl-10 pr-4 py-3 rounded-lg"
+                                           placeholder="Ulangi password">
+                                </div>
+                                @error('confirmPassword')
+                                    <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Address Information -->
+                        <div class="animate-fade-in" style="animation-delay: 0.7s;">
+                            <h3 class="text-lg font-medium text-gray-200 mb-4 flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2 text-koplak"></i>
+                                Alamat Lengkap
+                            </h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="provinsi" class="block text-gray-300 mb-2">Provinsi</label>
+                                    <input type="hidden" id="provinsi_nama" name="provinsi">
+                                    <select id="provinsi" class="form-select w-full py-3 rounded-lg bg-darker border border-gray-600 text-gray-200">
+                                        <option value="">Memuat Provinsi...</option>
+                                    </select>
+                                    @error('provinsi')
+                                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div>
+                                    <label for="kabupatenKota" class="block text-gray-300 mb-2">Kabupaten/Kota</label>
+                                    <input type="hidden" id="kabupatenKota_nama" name="kabupatenKota">
+                                    <select id="kabupatenKota" class="form-select w-full py-3 rounded-lg bg-darker border border-gray-600 text-gray-200">
+                                        <option value="">Pilih Kabupaten/Kota</option>
+                                    </select>
+                                    @error('kabupatenKota')
+                                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div>
+                                    <label for="kecamatan" class="block text-gray-300 mb-2">Kecamatan</label>
+                                    <input type="hidden" id="kecamatan_nama" name="kecamatan">
+                                    <select id="kecamatan" class="form-select w-full py-3 rounded-lg bg-darker border border-gray-600 text-gray-200">
+                                        <option value="">Pilih Kecamatan</option>
+                                    </select>
+                                    @error('kecamatan')
+                                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div>
+                                    <label for="kelurahan" class="block text-gray-300 mb-2">Kelurahan</label>
+                                    <input type="hidden" id="kelurahan_nama" name="kelurahan">
+                                    <select id="kelurahan" class="form-select w-full py-3 rounded-lg bg-darker border border-gray-600 text-gray-200">
+                                        <option value="">Pilih Kelurahan</option>
+                                    </select>
+                                    @error('kelurahan')
+                                        <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="mt-5">
+                                <label for="detailAlamat" class="block text-gray-300 mb-2">Detail Alamat</label>
+                                <textarea id="detailAlamat" name="detailAlamat" rows="3"
+                                          class="form-input w-full py-3 rounded-lg"
+                                          placeholder="Contoh: Jalan Merdeka No. 10, RT 05/RW 02"></textarea>
+                                @error('detailAlamat')
+                                    <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="flex flex-col sm:flex-row justify-between gap-4 pt-6">
+                            <a href="{{ route('index') }}" class="inline-flex items-center justify-center px-6 py-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition">
+                                <i class="fas fa-arrow-left mr-2"></i> Kembali
+                            </a>
+                            <button type="submit"
+                                    class="inline-flex items-center justify-center px-6 py-3 bg-koplak text-black font-bold rounded-lg hover:bg-koplak-dark transition">
+                                <i class="fas fa-user-plus mr-2"></i> Daftar Sekarang
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-6 text-gray-400">
+                        Sudah punya akun?
+                        <a href="{{ route('login') }}" class="text-koplak hover:text-koplak-dark hover:underline">Masuk disini</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if ($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Data Tidak Valid',
+                html: `Harap periksa kembali data yang dimasukkan`,
+                confirmButtonColor: '#F57F17',
+                background: '#111827',
+                color: '#FFF'
+            });
+        @elseif(session('success_swal'))
+            Swal.fire({
+                title: 'Pendaftaran Berhasil!',
+                text: '{{ session('success_swal') }}',
+                icon: 'success',
+                confirmButtonColor: '#F57F17',
+                background: '#111827',
+                color: '#FFF'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ route('login') }}";
+                }
+            });
+        @endif
+
+        function togglePassword(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const toggleIcon = document.getElementById(`toggle${fieldId === 'password' ? 'Password' : 'ConfirmPassword'}Icon`);
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            toggleIcon.classList.toggle('fa-eye');
+            toggleIcon.classList.toggle('fa-eye-slash');
+        }
+
+        // Animation for elements
+        document.querySelectorAll('.animate-fade-in').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
         });
     </script>
-    @endif
 
-    <script>
-        feather.replace();
-    </script>
-    <!-- bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- my js -->
-    <script src="{{ asset('js/script.js') }}"></script>
+    <!-- Address Selector Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('js/login_regis.js') }}"></script>
 </body>
 </html>

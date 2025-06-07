@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'akuns',
+            'provider' => 'akun',
         ],
     ],
 
@@ -60,7 +60,7 @@ return [
     */
 
     'providers' => [
-        'akuns' => [
+        'akun' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Akun::class),
         ],

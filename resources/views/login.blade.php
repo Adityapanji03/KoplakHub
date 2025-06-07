@@ -3,124 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koplak Food</title>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <!--font google-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Feather icon -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <!-- remixicon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
-    <!--Css-->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/login_regis.css') }}">
-</head>
-<body>
-
-    <!--Navbar-->
-    @include('layout.navbar')
-
-    <!-- login form -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <h1 class="text-center">Welcome back to <span>KoplakFood</span></h1>
-            <p class="text-center">Selamat datang kembali di KoplakFood</p>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">Login</div>
-
-                    @if(session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-
-                    <div class="card-body">
-                        <form action="{{ route('login.submit') }}" method="POST">
-                            @csrf
-                            <div class="form-group mb-3">
-                                <label for="username">Username:</label>
-                                <input type="text" name="username" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="password">Password:</label>
-                                <input type="password" name="password" class="form-control" required>
-                            </div>
-                            <button type="submit" class="btn btn-warning w-100">Login</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="mt-3 text-center">
-                    <a href="{{ route('regis') }}">Belum punya akun?</a>
-                </div>
-                <div class="mt-3 text-center">
-                    <button type="button" class="btn">
-                        <a href="index.php">Home</a>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="invalidDataModal" tabindex="-1" role="dialog" aria-labelledby="invalidDataModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="invalidDataModalLabel">Data Tidak Valid</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Data yang Anda masukkan tidak valid, harap isi kembali.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- footer -->
-    <footer class="py-4" style="background-color: #FFA75B;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/img/logoKF.png') }}" alt="Si Umang Logo" class="img-fluid" id="img-footer" style="max-width: 200px;">
-                </div>
-                <div class="col-md-4">
-                    <h5 style="font-weight: 550; font-family: 'Lily Script One';font-size: 2rem;">Alamat</h5>
-                    <p class="mb-0" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; font-weight: 550;font-size: 1.5rem;">PT KoplakFood</p>
-                    <p class="mb-0" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 550;font-size: 1.2rem;">dusun Gumuksegawe, Gumuk Segawe, Pancakarya, Kec. Ajung, Kabupaten Jember, Jawa Timur 68175</p>
-                </div>
-                <div class="col-md-4 text-center" style="margin-top: 3rem;">
-                    <h5 style="font-weight: 550; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 1.5rem;">Media sosial kami</h5>
-                    <div class="mt-2">
-                        <a href="#"><img src="assets\img\icons8-youtube-48.png" style="max-width: 2.7rem; margin: 0 0.8rem;"></a>
-                        <a href="#"><img src="assets\img\icons8-ig-48.png" style="max-width: 2.7rem;margin: 0 0.8rem;"></a>
-                        <a href="#"><img src="assets\img\icons8-whatsapp-48.png" style="max-width: 2.7rem;margin: 0 0.8rem;"></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-3" style="border-top: 1px solid rgba(0, 0, 0, 0.1);">
-            <div class="text-center text-muted">
-                <p class="mb-0" style="color: #ffffff;">&copy; 2025 KoplakFood. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <title>Login - Koplak Food</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .login-bg {
+            background-image: url('https://assets-a1.kompasiana.com/items/album/2021/09/08/realistic-coffee-background-with-drawings-79603-603-61386bf906310e556e082ee2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: #FBC02D;
+            box-shadow: 0 0 0 2px rgba(251, 192, 45, 0.3);
+        }
+    </style>
     <script>
-        feather.replace();
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'koplak': '#FFEB3B',
+                        'koplak-dark': '#FBC02D',
+                        'koplak-darker': '#F57F17',
+                        'dark': '#111827',
+                        'darker': '#0D1321'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'lily': ['"Lily Script One"', 'cursive']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                    }
+                }
+            }
+        }
     </script>
-    <!-- bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- my js -->
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/login_regis.js') }}"></script>
+</head>
+<body class="bg-white font-poppins">
+
+    <div class="min-h-screen flex items-center justify-center px-4 py-8">
+        <div class="w-full max-w-screen-xl h-[70vh] bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="flex flex-col lg:flex-row h-full"> <div class="lg:w-1/2 login-bg hidden lg:block relative h-full"> <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-10">
+                        <div class="text-center">
+                            <h2 class="text-2xl font-bold text-koplak mb-4 animate-fade-in" style="font-family: 'Lily Script One', cursive;">KoplakFood</h2>
+                            <p class="text-white text-l animate-fade-in" style="animation-delay: 0.2s;">Temukan cita rasa kopi dan jajanan autentik dalam produk kami</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 border-b-2 border-black lg:w-1/2 p-8 md:p-12 flex flex-col justify-center h-full"> <div class="text-center mb-8">
+                        <h1 class="text-2xl font-bold text-white mb-2 animate-fade-in">Welcome back to <span class="text-koplak" style="font-family: 'Lily Script One', cursive;">KoplakHub</span></h1>
+                        <p class="text-white text-l animate-fade-in" style="animation-delay: 0.1s;">Silakan masuk ke akun Anda</p>
+                    </div>
+
+                    <form action="{{ route('login.submit') }}" method="POST" class="space-y-6">
+                        @csrf
+                        <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                            <label for="username" class="block text-white mb-2 text-l">Username</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-gray-500 text-l"></i>
+                                </div>
+                                <input type="text" name="username" required
+                                       class="text-white form-input w-full pl-10 pr-3 py-4 rounded-lg focus:ring-2 focus:ring-koplak text-l"
+                                       placeholder="Masukkan username Anda">
+                            </div>
+                            @error('username')
+                                <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                            <label for="password" class="block text-white mb-2 text-l">Password</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-500 text-l"></i>
+                                </div>
+                                <input type="password" name="password" id="password" required
+                                       class="text-white form-input w-full pl-10 pr-10 py-4 rounded-lg focus:ring-2 focus:ring-koplak text-l"
+                                       placeholder="Masukkan password Anda">
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                </div>
+                            </div>
+                            @error('password')
+                                <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="animate-fade-in" style="animation-delay: 0.4s;">
+                            <button type="submit"
+                                    class="border-b-8 border-black w-full bg-koplak hover:bg-koplak-dark text-black font-bold py-4 px-4 rounded-lg transition duration-300 flex items-center justify-center text-xl">
+                                <i class="fas fa-sign-in-alt mr-2"></i> Masuk
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="mt-8 text-center animate-fade-in" style="animation-delay: 0.5s;">
+                        <p class="text-white text-l">Belum punya akun?
+                            <a href="{{ route('regis') }}" class="text-koplak hover:text-joplak-dark hover:underline">Daftar sekarang</a>
+                        </p>
+                    </div>
+
+                    <div class=" rounded-lg mt-6 text-center animate-fade-in p-3" style="animation-delay: 0.6s;">
+                        <a href="{{route('home')}}" class="font-bold border-b-8 border-black inline-flex items-center text-black hover:text-gray-800 transition text-l bg-koplak rounded-lg p-3 border-b-2 border-black">
+                            <i class="fas fa-home mr-2"></i> Kembali ke Beranda
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if ($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Data Tidak Valid',
+                html: `Harap isi kembali`,
+                confirmButtonColor: '#F57F17',
+                background: '#111827',
+                color: '#FFF'
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Login Gagal',
+                text: 'Username atau password tidak terdaftar',
+                confirmButtonColor: '#F57F17',
+                background: '#111827',
+                color: '#FFF'
+            });
+        @endif
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('togglePasswordIcon');
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            toggleIcon.classList.toggle('fa-eye');
+            toggleIcon.classList.toggle('fa-eye-slash');
+        }
+    </script>
 </body>
 </html>
