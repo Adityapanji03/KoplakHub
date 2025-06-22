@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Akun;
 use App\Models\Produk;
 use App\Models\Review;
+use App\Models\Keranjang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -52,7 +53,7 @@ class AuthController extends Controller
 
         // Periksa id_role dan arahkan ke route yang sesuai
         if ($role === 1) {
-            return redirect()->intended('admin/dashboard');
+            return redirect()->route('dashboard');
         } elseif ($role === 2) {
             $products = Produk::take(4)->get();
             $reviews = Review::all();

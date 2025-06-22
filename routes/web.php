@@ -18,12 +18,10 @@ Route::get('/storage-link', function () {
     $linkFolder = public_path('storage');
 
     try {
-        // Cek apakah symlink sudah ada, jika ada, hapus dulu (optional tapi direkomendasikan)
         if (File::exists($linkFolder)) {
             File::delete($linkFolder);
         }
 
-        // Pastikan folder sumber ada
         if (!File::exists($targetFolder)) {
             File::makeDirectory($targetFolder, 0755, true);
         }
@@ -44,19 +42,18 @@ Route::post('/midtrans/callback', [MidtransController::class, 'callback']);
 // });
 Route::get('/', [AuthController::class, 'home']);
 
-Route::get('/login', [AuthController::class, 'ShowLogin'])->name('login');
 
-// Route::get('/login', function () {
-//     return view('login');
-// })->name('login');
+Route::middleware(['guest'])->group(function () {
 
-Route::get('/regis', function () {
-    return view('regis');
-})->name('regis');
+    Route::get('/regis', function () {
+        return view('regis');
+    })->name('regis');
 
-// route Login n regis submit
-Route::post('/register', [RegisterController::class, 'submit'])->name('register.submit');
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+    Route::post('/register', [RegisterController::class, 'submit'])->name('register.submit');
+    Route::get('/login', [AuthController::class, 'ShowLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+});
+
 // logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/home', [AuthController::class, 'home'])->name('home');

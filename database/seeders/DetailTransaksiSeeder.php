@@ -206,6 +206,16 @@ class DetailTransaksiSeeder extends Seeder
                 'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
                 'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
             ],
+            [
+                'id' => 20,
+                'transaksi_id' => 30,
+                'produk_id' => 2,
+                'harga' => 25000.00,
+                'jumlah' => 1,
+                'subtotal' => 25000.00,
+                'created_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+                'updated_at' => Carbon::create(2025, 5, 23, 20, 23, 37),
+            ],
 
         ]);
     }

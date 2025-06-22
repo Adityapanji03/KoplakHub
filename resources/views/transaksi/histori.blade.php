@@ -237,7 +237,7 @@
         @if($transaksi->hasPages())
             <div class="mt-6">
                 <nav class="flex justify-center">
-                    {{ $transaksi->links('vendor.pagination.tailwind-dark') }}
+                    {{ $transaksi->links() }}
                 </nav>
             </div>
         @endif

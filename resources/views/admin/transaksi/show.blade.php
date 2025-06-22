@@ -43,8 +43,10 @@
                 </div>
                 <div class="p-5 space-y-3 text-sm">
                     @php
-                        $alamat = $transaction->alamat_pengiriman;
+                        $raw = $transaction->alamat_pengiriman;
+                        $alamat = is_string($raw) ? json_decode($raw, true) : $raw;
                     @endphp
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <span class="block text-white mb-1">Nama:</span>
@@ -155,14 +157,14 @@
                         <div class="bg-gray-800 rounded-lg border border-gray-600 overflow-hidden">
                             <div class="flex items-center p-4 border-b border-gray-600">
                                 @if($item->produk->gambar_produk)
-                                    <img src="{{ asset('storage/' . $item->produk->gambar_produk) }}" alt="{{ $item->produk->nama }}" class="w-16 h-16 object-cover rounded-md mr-4">
+                                    <img src="{{ asset('storage/' . $item->produk->gambar_produk) }}" alt="{{ $item->produk->nama_produk }}" class="w-16 h-16 object-cover rounded-md mr-4">
                                 @else
                                     <div class="w-16 h-16 bg-gray-700 rounded-md mr-4 flex items-center justify-center">
                                         <i class="fas fa-box-open text-gray-500 text-xl"></i>
                                     </div>
                                 @endif
                                 <div>
-                                    <h6 class="font-medium text-gray-100">{{ $item->produk->nama ?? 'Produk' }}</h6>
+                                    <h6 class="font-medium text-gray-100">{{ $item->produk->nama_produk ?? 'Produk' }}</h6>
                                     <span class="text-xs text-white">ID: {{ $item->produk->id ?? '-' }}</span>
                                 </div>
                             </div>
@@ -208,7 +210,7 @@
                                                 </div>
                                             @endif
                                             <div>
-                                                <div>{{ $item->produk->nama ?? 'Produk' }}</div>
+                                                <div>{{ $item->produk->nama_produk ?? 'Produk' }}</div>
                                                 <div class="text-xs text-white">ID: {{ $item->produk->id ?? '-' }}</div>
                                             </div>
                                         </div>

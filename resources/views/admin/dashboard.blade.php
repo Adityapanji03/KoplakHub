@@ -7,23 +7,10 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4 rounded-lg mt-14">
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Dashboard</h2>
-                <div class="flex space-x-2">
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <i class="fas fa-search text-white"></i>
-                        </div>
-                        <input type="text" id="search" class="block p-2 pl-12 text-sm bg-gray-700 text-gray-900 border border-gray-300 rounded-lg w-60 bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cari...">
-                    </div>
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black bg-koplak focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center hover:bg-yellow-500 dark:focus:ring-koplak" type="button">
-                        Filter
-                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                    </button>
-                </div>
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-white">
+                    <i class="fa-solid fa-gauge text-blue-500"></i> Dashboard
+                </h2>
             </div>
-
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 <!-- Total Modal -->
@@ -114,7 +101,7 @@
                                     <i class="fas fa-file-alt mr-2"></i> Detail Laporan
                                 </a>
                                 <a href="{{route('dashboard.export')}}" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-koplak transition">
-                                    <i class="fas fa-file-excel mr-2"></i> Ekspor ke Pdf
+                                    <i class="fas fa-file-excel mr-2"></i> Ekspor Laporan ke Pdf
                                 </a>
                                 <div class="border-t border-gray-600"></div>
                                 <a href="{{route('dashboard')}}" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-koplak transition">
@@ -175,7 +162,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Accuracy -->
+                                {{-- <!-- Accuracy -->
                                 <div class="mb-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-gray-300 font-medium">
@@ -187,7 +174,7 @@
                                         <div class="bg-gradient-to-r from-blue-400 to-koplak h-2.5 rounded-full"
                                              style="width: {{ $prediction['accuracy'] }}%"></div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <!-- Last Updated -->
                                 <div class="text-center pt-2 border-t border-gray-600">

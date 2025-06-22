@@ -240,7 +240,7 @@ class TransaksiController extends Controller
                 'detail_alamat' => $user->detail_alamat ?? '',
                 'kelurahan' => $user->kelurahan ?? '',
                 'kecamatan' => $user->kecamatan ?? '',
-                'kabupaten' => $user->kabupaten ?? '',
+                'kabupaten' => $user->kabupaten_kota ?? '',
                 'provinsi' => $user->provinsi ?? '',
                 'no_hp' => $user->no_hp ?? ''
             ]),

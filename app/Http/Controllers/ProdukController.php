@@ -129,11 +129,11 @@ class ProdukController extends Controller
     {
         $product = Produk::findOrFail($id);
 
-        // Check if product has stock
-        if ($product->stok_produk <= 0) {
-            return redirect()->route('products')
-                ->with('error', 'Produk tidak tersedia.');
-        }
+        // // Check if product has stock
+        // if ($product->stok_produk <= 0) {
+        //     return redirect()->route('products')
+        //         ->with('error', 'Produk tidak tersedia.');
+        // }
 
         return view('products.detail', compact('product'));
     }
